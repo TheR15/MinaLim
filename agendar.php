@@ -26,47 +26,76 @@
     </div>
     
     <section class="contenedor-formulario">
-        <form method="post">
-            <div class="formulario">
+        <form class="formulario">
                 <fieldset>
-                <legend>Agendar Cita</legend>
-                <label for="username">Nombre y Apellidos:</label>
-                <input id="username" name="username" type="text" />
-                <label for="username">Edad: </label>
-                <input id="username" name="username" type="number" />
-                
-                <label for="username">Lugar de Nacimiento:</label>
-                <input id="username" name="username" type="text" />
-                <label for="username">Fecha de Nacimiento:</label>
-                <input id="username" name="username" type="date" />
-                
-                <label for="username">Sexo:</label>
-                <input id="username" name="username" type="text" />
-                <label for="username">Estado Civil</label>
-                <input id="username" name="username" type="text" />
-                
-                <label for="username">Grupo/RH:</label>
-                <input id="username" name="username" type="text" />
-                <label for="username">Domicilio:</label>
-                <input id="username" name="username" type="text" />
-                
-                <label for="username">Ocupacion:</label>
-                <input id="username" name="username" type="text" />
-                <label for="username">Religion:</label>
-                <input id="username" name="username" type="number" />
-                
-                <label for="username">Celular:</label>
-                <input id="username" name="username" type="number" />
-                <label for="username">Correo:</label>
-                <input id="username" name="username" type="email" />
-                <label for="username">Numero de Emergencia:</label>
-                <input id="username" name="username" type="number" />
-                <label for="username">Motivo de Consulta:</label>
-                <textarea name="" id=""></textarea>
-                <input class= "boton-formulario" type="submit">
-            </fieldset>
-            </div>
+                    <legend>Agendar Cita</legend>
+                    <label for="username">Nombre y Apellidos:</label>
+                    <input id="nombre" name="username" type="text" placeholder="Ingrese el nombre y apellidos"/>
+
+                    <label for="username">Edad: </label>
+                    <input id="edad" name="username" type="number" placeholder="Ingrese la edad"/>
+                    
+                    <label for="username">Lugar de Nacimiento:</label>
+                    <input id="lugarNacimiento" name="username" type="text" placeholder="Ingrese el lugar de nacimiento" />
+
+                    <label for="username">Fecha de Nacimiento:</label>
+                    <input id="fechaNacimiento" name="username" type="date" />
+                    
+                    <label for="username">Sexo:</label>
+                    <select name="genero" id="genero-combobox">
+                        <option value="">--Selecciona el genero--</option>
+                        <option value="mujer">Mujer</option>
+                        <option value="hombre">Hombre</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                    <label for="username">Estado Civil</label>
+                    <select name="estado-civil" id="estado-civil-combobox">
+                        <option value="">--Selecciona el Estado Civil--</option>
+                        <option value="soltero">Soltera/o</option>
+                        <option value="casado">Casada/o</option>
+                        <option value="divorciado">Divorciada/o</option>
+                        <option value="viudo">Viuda/o</option>
+                        <option value="otro-estado-civil">Otro</option>
+                    </select>
+                    
+                    <label for="username">Grupo/RH:</label>
+                    <select name="lgrupo/rh" id="grupo/rh-combobox">
+                        <option value="">--Selecciona el Grupo/RH--</option>
+                        <option value="O-">O-</option>
+                        <option value="O+">O+</option>
+                        <option value="A-">A-</option>
+                        <option value="A+">A+</option>
+                        <option value="B-">B-</option>
+                        <option value="B+">B+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="AB+">AB+</option>
+                    </select>
+
+                    <label for="username">Domicilio:</label>
+                    <input id="domicilio" name="username" type="text" placeholder="Ingrese el domicilio"/>
+                    
+                    <label for="username">Ocupacion:</label>
+                    <input id="ocupacion" name="username" type="text" placeholder="Ingrese la ocupacion"/>
+
+                    <label for="username">Religion:</label>
+                    <input id="religion" name="username" type="text" placeholder="Ingrese la religion" />
+                    
+                    <label for="username">Celular:</label>
+                    <input id="celular" name="username" type="number" placeholder="Ingrese el numero telefonico"/>
+
+                    <label for="username">Correo:</label>
+                    <input id="correo" name="username" type="email" placeholder="Ingrese su correo electronico"/>
+
+                    <label for="username">Numero de Emergencia:</label>
+                    <input id="numeroEmergencia" name="username" type="number" placeholder="Ingrese un numero telefonico de emergencia"/>
+
+                    <label for="username">Motivo de Consulta:</label>
+                    <textarea name="" id="motivoConsulta" placeholder="Ingrese el motivo de consulta"></textarea>
+
+                    <input type="submit" value="Enviar" class="boton-formulario">
+                </fieldset>
         </form>
     </section>
+    <script src="js/scripts.js"></script>
 </body>
 </html>

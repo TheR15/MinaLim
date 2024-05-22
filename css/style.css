@@ -105,6 +105,17 @@ fieldset{
     border: none;
 }
 
+input, select, textarea{
+    max-width:100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 2px solid #fff;
+    outline: none;
+    font-size: 1.8rem;
+    color: #873600;
+}
+
+
 /* Header */
 
 .header{
@@ -174,16 +185,6 @@ fieldset{
     border-radius: 1rem;
 }
 
-input{
-    max-width:100%;
-    padding: 1rem;
-    border-radius: 1rem;
-    border: 2px solid #fff;
-    outline: none;
-    color: #C09E5D;
-    font-size: 1.5rem;
-}
-
 .boton {
     color: #ffffff;
     background: #C09E5D;
@@ -191,10 +192,10 @@ input{
     padding: 1rem 3rem; 
     font-size: 2rem;
     font-weight: 700;
-    margin: 0 auto;
     margin-top: 1.5rem;
     margin-bottom: 2rem;
     border-radius: 5rem;
+    border: none;
 }
 
 .boton:hover{
@@ -599,20 +600,35 @@ input{
 
 
 /* Pagina Agendar Cita */
-
-.contenedor-formulario{
-    margin: 0 auto;
-    max-width: 50%;
-    margin-top: 4rem;
+@media (min-width :300px) {
+    .contenedor-formulario{
+        max-width: 90%;
+        margin: 0 auto;
+        margin-top: 4rem;
+    }
+    .formulario{
+        display: flex;
+        justify-content: center;
+    }
 }
 
+@media (min-width :768px) {
+    .formulario{
+        display: block;
+    }
+    
+    .contenedor-formulario{
+        max-width: 50%;
+        margin: 0 auto;
+        margin-top: 4rem;
+    }
+}
+
+
 .formulario{
-    display: flex;
-    flex-direction: column;
     background-color: #FDEDEC;
     padding: 5rem;
     border-radius: 5rem;
-
 }
 
 .formulario label{
@@ -620,12 +636,31 @@ input{
     margin-bottom: 1rem;
 }
 
-.formulario input{
-    font-size: 1.8rem;
-    color: #873600;
+.boton-formulario{
+    color: #ffffff;
+    background: #C09E5D;
+    text-align: center;
+    padding: 1rem 3rem; 
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    border-radius: 5rem;
+    border: none;
 }
 
-.boton-formulario{
-    margin-top: 2rem;
-    background: #784D3c;
+.boton-formulario:hover{
+    background-color: #784D3c;
+    transition: 0.8s;
+}
+
+
+.error{
+    background-color: rgb(185, 0, 0);
+    text-align: center;
+    font-size: 1.8rem;
+    padding: 1rem;
+    color: var(--blanco);
+    text-transform: uppercase;
+    border-radius: 3rem;
 }
