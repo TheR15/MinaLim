@@ -1,0 +1,631 @@
+:root{
+    --fuente: "Libre Baskerville", serif;
+    --fuenteHeading: 'Montserrat', sans-serif;
+    --primario: #784D3c;
+    --claro:#e1e1e1;
+    --blanco: #ffffff;
+    --negro: #000000;
+}
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+*, *:before, *after{
+    box-sizing: inherit;
+}
+
+
+.contenedor{
+    background-image: url(/img/Fondo.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 22rem;
+    max-width: 130rem;
+    width: 100%;
+    width: min(90%,120rem);
+    margin: 0 auto;
+    background-color: #FEF9F4;
+}
+
+body{
+    font-family: var(--fuenteHeading);
+   
+}
+
+@media (min-width: 768px) {
+    body{
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+a{
+    text-decoration: none;
+}
+
+
+/*Globales*/
+
+.no-margin{
+    margin: 0 auto;
+}
+
+.centrar-texto{
+    text-align: center;
+}
+
+.logo{
+    max-width: 15%;
+}
+
+h1, h2, h3, h4, input,a{
+    line-height: 1.2;
+}
+
+h1{
+    font-size: 4.8rem;
+    font-weight: 500;
+}
+h2{
+    font-family: var(--fuenteHeading);
+    font-size: 4rem;
+    font-weight: 500;
+    margin: 0 auto;
+}
+h3{
+    font-size: 3.2rem;
+}
+h4{
+    font-size: 2.3rem;
+}
+img{
+    max-width: 100%;
+}
+
+li{
+    font-size: 2.3rem;
+}
+
+label{
+    font-size: 1.8rem;
+}
+
+legend{
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+fieldset{
+    display: flex;
+    flex-direction: column;
+    align-items: initial;
+    border: none;
+}
+
+/* Header */
+
+.header{
+    font-family: var(--fuente);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+
+.logo_header{
+    max-width: 10%;
+}
+
+.titulo{
+    font-size: 6rem;
+    font-weight: bold;
+    color:#C09E5D;
+}
+
+.titulo_span{
+    font-weight: 200;
+    font-size: 3rem;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.login{
+    color:#C09E5D ;
+    font-weight: bold;
+    max-width: 40rem;
+    width: 90%;
+    width: min(90%,120rem);
+    margin: 0 auto;
+    margin-top: 15rem;
+    padding: 3rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: #FEF9F4;
+    border-radius: 5rem;
+    
+    -webkit-box-shadow: 0px 0px 3px 0px #784D3c;
+    -moz-box-shadow: 0px 0px 3px 0px #784D3c;
+    box-shadow: 0px 0px 3px 0px #784D3c;
+}
+
+.campos_login{
+    margin-top: 1.5rem;
+    display: grid;
+    justify-content: center;
+    
+}
+
+.icono_login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+
+.icono_login:hover{
+    -webkit-box-shadow: 0px 0px 3px 0px #784D3c;
+    -moz-box-shadow: 0px 0px 3px 0px #784D3c;
+    box-shadow: 0px 0px 3px 0px #784D3c;
+    border-radius: 1rem;
+}
+
+input{
+    max-width:100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 2px solid #fff;
+    outline: none;
+    color: #C09E5D;
+    font-size: 1.5rem;
+}
+
+.boton {
+    color: #ffffff;
+    background: #C09E5D;
+    text-align: center;
+    padding: 1rem 3rem; 
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 5rem;
+}
+
+.boton:hover{
+    background-color: #784D3c;
+    transition: 0.8s;
+}
+
+
+/* Menu Principal */
+
+.contenedor-menu{
+    max-width: 150rem;
+    width: 90%;
+    width: min(90%, 150rem);
+    margin: 0 auto;
+}
+
+.fondo{
+    background: #fef5e74d;
+}
+
+    
+.logo__nombre{
+    color: #C09E5D;
+}
+
+.barra-nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    background-color: #FBEEE6;
+    border-radius: 2rem;
+}
+
+@media (min-width : 768px){
+    .barra-nav{
+        display: flex;
+        flex-direction: row;
+        padding-right: 5rem;
+        padding-left: 5rem;
+        gap: 6rem;
+        background-color: #FBEEE6;
+    }
+    .barra{
+        display: flex;
+        gap: 5rem;
+    }
+    .navegacion{
+        display: flex;
+        margin: 0 auto;
+        margin-right: 0;
+        align-items: center;
+    }
+}
+
+.barra-nav a{
+    color: #000000;
+    font-size: var(--fuenteHeading);
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+.navegacion__enlace{
+    color: #000000;
+    transition: color .5s ease;
+}
+
+.navegacion__enlace:hover{
+    color:#935116;
+}
+
+/**Tratamientos**/
+
+@media (min-width :768px) {
+    .contenedor-tratamientos{
+        margin: 0 auto;
+        display: grid; 
+        grid-auto-columns: 1fr; 
+        grid-template-columns: 1fr 1fr 1fr; 
+        grid-template-rows: 1fr 1fr; 
+        gap: 5rem;
+        grid-template-areas: 
+        "Faciales Corporales Corporales"
+        "Faciales Belleza Masajes"; 
+    }
+    .texto-trat{
+        margin-top: 1.5rem;
+    }
+}
+
+.texto-trat{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.contenedor-tratamientos{
+    margin-top: 2rem;
+    margin-right: 1rem;
+}
+
+/* Responsiva en Moviles */
+
+@media (min-width :300px) {
+    .Faciales{
+        background-position: center;
+        border-radius: 3rem;
+        padding-bottom: 60rem;
+        position: absolute;
+        transition: background-color 1s;
+    }
+
+    .Corporales{
+        background-position: center;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 33rem;
+    }
+
+    .Belleza{
+        display: flex;
+        justify-content: center;
+        background-position: center;
+        margin-top: 2rem;
+        padding-bottom: 29rem;
+    }
+
+    .Masajes{
+        display: flex;
+        justify-content: center;
+        background-position: center;
+        margin-top: 2rem;
+        padding-bottom: 20rem;
+    }
+}
+
+
+/* Responsiva en Escritorios */
+
+@media (min-width :768px) {
+    .Corporales, .Masajes, .Belleza, .Faciales{
+        margin-top: 0;
+        display: flex;
+        justify-content: center;
+        background-color:#F5EEF8 ;
+        border-radius: 3rem;
+        padding-bottom: 28rem;
+        position: relative;
+        transition: background-color 1s;
+    }
+}
+
+
+/* Animacion */
+
+@-webkit-keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.1em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -.1em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+/* Faciales Transicion y Animacion */
+
+.Faciales .listas {
+    -webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    
+}
+
+.Faciales:hover{
+    background-color:#ffe0c9;
+}
+
+.Faciales:hover .listas{
+    display: block;
+}
+
+/* Corporales Transicion y Animacion */
+.Corporales .listas{
+    -webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+.Corporales:hover{
+    background-color:#f6dfff;
+}
+
+.Corporales:hover .listas{
+    display: block;
+}
+/*Belleza Transicion y Animacion */
+
+.Belleza .listas{
+    -webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+.Belleza:hover{
+    background-color:#ffceca;
+}
+
+.Belleza:hover .listas{
+    display: block;
+}
+
+/*Belleza Transicion y Animacion */
+
+.Masajes .listas{
+    -webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+.Masajes:hover{
+    background-color:#daffe9;
+}
+
+.Masajes:hover .listas{
+    display: block;
+}
+
+
+@media (min-width :768px) {
+        .grid-corporales{
+        display: grid; 
+        grid-auto-columns: 1fr; 
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+}
+
+.Corporales{
+    background-color:#F5EEF8;
+    border-radius: 3rem;
+}
+
+.Belleza{
+    background-color:#FDEDEC;
+    border-radius: 3rem;
+}
+
+.Masajes{
+    background-color:#EAFAF1;
+    border-radius: 3rem;
+}
+
+.Faciales { grid-area: Faciales; }
+.Corporales { grid-area: Corporales; }
+.Belleza { grid-area: Belleza; }
+.Masajes { grid-area: Masajes; }
+
+.listas{
+    position: absolute;
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    margin-top: 4rem;
+}
+
+.lista-belleza{
+    position: absolute;
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    margin-top: 1rem;
+    top: 5rem;
+    left: 5rem;
+    right: 5rem;
+}
+
+.lista-Main{
+    list-style: none;
+    font-weight: bold;
+}
+
+.listas a{
+    display: block;
+    border-radius: 1rem;
+    padding: 1rem 1rem;
+    color: #000000;
+    transition: background-color .5s ease;
+}
+
+.listas a:hover{
+    background: #ffdda9 ;
+    border-radius: 1rem;
+    opacity: 1.0;
+}
+
+.text-listas a{
+    font-size: 2rem;
+    font-weight: 300;
+    color: #000000;
+    margin: 0 2rem 0 2rem;
+}
+
+#corp-hover a:hover {
+    background: #A9CCE3;
+    border-radius: 1rem;
+}
+
+#belleza-hover a:hover {
+    background: #F5B7B1;
+    border-radius: 1rem;
+}
+
+#masajes-hover a:hover {
+    background: #F0B27A;
+    border-radius: 1rem;
+}
+
+/* Tratamientos Faciales Fondo*/
+
+.Faciales{
+    background-image: url(/img/Faciales.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+.contenido-faciales, .contenido-corporales, .contenido-belleza, .contenido-masajes{
+    position: absolute;
+    background-color: rgb(0 0 0 / 0%);
+    width: 100%;
+    height: 100%;
+    border-radius: 3rem;
+    transition: background-color 1s ease-out;
+}
+
+.contenido-faciales:hover, .contenido-corporales:hover, .contenido-belleza:hover, .contenido-masajes:hover{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    background: rgba(254, 245, 231, 0.8);
+    width: 100%;
+    height: 100%;
+    border-radius: 3rem;
+}
+
+/* Tratamientos Corporales Fondo*/
+
+.Corporales{
+    background-image: url(/img/Corporales.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+.contenido-corporales:hover{
+    background: rgba(212, 230, 241, 0.8);
+}
+
+/* Tratamientos Belleza Fondo*/
+
+.Belleza{
+    background-image: url(/img/Belleza.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 80%;
+    position: relative;
+}
+.contenido-belleza:hover{
+    background: rgba(250, 219, 216, 0.8);
+}
+
+/* Tratamientos Belleza Fondo*/
+
+.Masajes{
+    background-image: url(/img/Masajes.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 80%;
+    position: relative;
+}
+.contenido-masajes:hover{
+    background: rgba(250, 229, 211, 0.8);
+}
+
+
+/* Pagina Agendar Cita */
+
+.contenedor-formulario{
+    margin: 0 auto;
+    max-width: 50%;
+    margin-top: 4rem;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    background-color: #FDEDEC;
+    padding: 5rem;
+    border-radius: 5rem;
+
+}
+
+.formulario label{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.formulario input{
+    font-size: 1.8rem;
+    color: #873600;
+}
+
+.boton-formulario{
+    margin-top: 2rem;
+    background: #784D3c;
+}
