@@ -18,24 +18,30 @@
 
 
 <body class="contenedor">
+
     <div class="fondo-imagen">
         <div class="header">
         <h1 class="titulo">Mina Lim <span class="titulo_span" >Beauty SPA</span></h1>
         </div>
-        <form class="login" action="index.html">
+        <form method="post" class="login" action="index.html">
             <h2>Iniciar sesion</h1>
                 <div class="campos_login">
                     <div class="icono_login">
-                        <input type="text" placeholder="Usuario" id="fname" name="fndasd"><br><br>
+                        <input type="text" placeholder="Usuario" id="fname" name="usuario"><br><br>
                     </div>
 
                     <div class="icono_login">
-                    <input type="password" placeholder="Contraseña" id="lname" name="lname"><br><br>
+                    <input type="password" placeholder="Contraseña" id="lname" name="password"><br><br>
 
                     </div>    
-                    <a class="boton" href="#">Ingresar</a>
+                    <a name="btnIngresar" class="boton" href="#">Ingresar</a>
                 </div>
         </form>
+        <?php
+    include("database.php");
+    include("usuario.php");
+    ?>
     </div>
+
 </body>
 </html>

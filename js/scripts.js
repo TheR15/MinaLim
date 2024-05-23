@@ -61,7 +61,7 @@ function leerTexto(e){
 function mostrarAlerta(mensaje, error = null){
     const alerta = document.createElement('P');
     alerta.textContent = mensaje;
-
+    alerta.style.transition = 'background-color 1s ease'
     if(error){ 
         alerta.classList.add('error');
     }else{
@@ -71,6 +71,7 @@ function mostrarAlerta(mensaje, error = null){
     formulario.appendChild(alerta);
 
     setTimeout(() => {
+        alerta
         alerta.remove();
     }, 5000);
 }

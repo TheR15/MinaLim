@@ -109,7 +109,7 @@ input, select, textarea{
     max-width:100%;
     padding: 1rem;
     border-radius: 1rem;
-    border: 2px solid #fff;
+    border: none;
     outline: none;
     font-size: 1.8rem;
     color: #873600;
@@ -402,10 +402,6 @@ input, select, textarea{
 	animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
 
-.Corporales:hover{
-    background-color:#f6dfff;
-}
-
 .Corporales:hover .listas{
     display: block;
 }
@@ -424,15 +420,11 @@ input, select, textarea{
     display: block;
 }
 
-/*Belleza Transicion y Animacion */
+/*Masajes Transicion y Animacion */
 
 .Masajes .listas{
     -webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 	animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-}
-
-.Masajes:hover{
-    background-color:#daffe9;
 }
 
 .Masajes:hover .listas{
@@ -450,17 +442,14 @@ input, select, textarea{
 }
 
 .Corporales{
-    background-color:#F5EEF8;
     border-radius: 3rem;
 }
 
 .Belleza{
-    background-color:#FDEDEC;
     border-radius: 3rem;
 }
 
 .Masajes{
-    background-color:#EAFAF1;
     border-radius: 3rem;
 }
 
@@ -654,7 +643,7 @@ input, select, textarea{
     transition: 0.8s;
 }
 
-
+/* Alerta Error JS */
 .error{
     background-color: rgb(185, 0, 0);
     text-align: center;
@@ -663,4 +652,51 @@ input, select, textarea{
     color: var(--blanco);
     text-transform: uppercase;
     border-radius: 3rem;
+    transition: all 0.3s ease;
+}
+
+/* Pagina Agenda */
+
+.contenedor-agenda{
+    max-width: 150rem;
+    width: 90%;
+    width: min(90%, 150rem);
+    margin: 0 auto;
+}
+
+.titulo-agenda{
+    margin-left: 7rem;
+}
+
+.tabla{
+    margin: 0 auto;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 1.8rem;
+    background: #EBF5FB;
+    padding: 3rem;
+}
+
+th,td{
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.103);
+    border-radius: 3rem;
+}
+
+.boton-editar,.boton-fecha,.boton-cancelar{
+    background: #F7DC6F;
+    border: none;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.boton-fecha{
+    background: #52BE80;
+    margin-left: 1rem;
+}
+
+.boton-cancelar{
+    background: #CD6155;
+    margin-left: 1rem;
 }
