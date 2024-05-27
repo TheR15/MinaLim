@@ -17,10 +17,6 @@ html{
 
 
 .contenedor{
-    background-image: url(/img/Fondo.svg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
     padding-bottom: 22rem;
     max-width: 130rem;
     width: 100%;
@@ -144,25 +140,27 @@ input, select, textarea{
     flex-direction: row-reverse;
 }
 
-.login{
-    color:#C09E5D ;
-    font-weight: bold;
-    max-width: 40rem;
-    width: 90%;
-    width: min(90%,120rem);
-    margin: 0 auto;
-    margin-top: 15rem;
-    padding: 3rem;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    background-color: #FEF9F4;
-    border-radius: 5rem;
-    
-    -webkit-box-shadow: 0px 0px 3px 0px #784D3c;
-    -moz-box-shadow: 0px 0px 3px 0px #784D3c;
-    box-shadow: 0px 0px 3px 0px #784D3c;
+@media (min-width : 300px){
+    .login{
+        color:#C09E5D ;
+        font-weight: bold;
+        max-width: 40rem;
+        width: 90%;
+        width: min(90%,120rem);
+        margin: 0 auto;
+        margin-top: 15rem;
+        padding: 3rem;
+        text-align: center;
+        background-color: #FEF9F4;
+        border-radius: 5rem;
+        
+        -webkit-box-shadow: 0px 0px 3px 0px #784D3c;
+        -moz-box-shadow: 0px 0px 3px 0px #784D3c;
+        box-shadow: 0px 0px 3px 0px #784D3c;
+    }
 }
+
+
 
 .campos_login{
     margin-top: 1.5rem;
@@ -208,7 +206,7 @@ input, select, textarea{
 
 .contenedor-menu{
     max-width: 150rem;
-    width: 90%;
+    width: 100%;
     width: min(90%, 150rem);
     margin: 0 auto;
 }
@@ -297,7 +295,6 @@ input, select, textarea{
 
 .contenedor-tratamientos{
     margin-top: 2rem;
-    margin-right: 1rem;
 }
 
 /* Responsiva en Moviles */
@@ -382,7 +379,7 @@ input, select, textarea{
 
 /* Faciales Transicion y Animacion */
 
-.Faciales .listas {
+.boton-servicios {
     -webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 	animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
     
@@ -397,7 +394,7 @@ input, select, textarea{
 }
 
 /* Corporales Transicion y Animacion */
-.Corporales .listas{
+.boton-servicios-azul{
     -webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 	animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
@@ -407,7 +404,7 @@ input, select, textarea{
 }
 /*Belleza Transicion y Animacion */
 
-.Belleza .listas{
+.boton-servicios-rojo{
     -webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 	animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
@@ -484,38 +481,33 @@ input, select, textarea{
     font-weight: bold;
 }
 
-.listas a{
-    display: block;
-    border-radius: 1rem;
-    padding: 1rem 1rem;
-    color: #000000;
-    transition: background-color .5s ease;
-}
-
-.listas a:hover{
-    background: #ffdda9 ;
-    border-radius: 1rem;
-    opacity: 1.0;
-}
-
-.text-listas a{
+.boton-servicios-azul,
+.boton-servicios,
+.boton-servicios-rojo,
+.boton-servicios-masajes{
+    background: transparent;
     font-size: 2rem;
     font-weight: 300;
     color: #000000;
     margin: 0 2rem 0 2rem;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
 }
 
-#corp-hover a:hover {
+.boton-servicios-azul:hover {
+    list-style: none;
+    background: transparent;
     background: #A9CCE3;
     border-radius: 1rem;
 }
 
-#belleza-hover a:hover {
+.boton-servicios-rojo:hover {
+
     background: #F5B7B1;
     border-radius: 1rem;
 }
 
-#masajes-hover a:hover {
+.boton-servicios-masajes:hover {
     background: #F0B27A;
     border-radius: 1rem;
 }
@@ -523,7 +515,7 @@ input, select, textarea{
 /* Tratamientos Faciales Fondo*/
 
 .Faciales{
-    background-image: url(/img/Faciales.jpg);
+    background-image: url(/img/Faciales.webp);
     background-size: cover;
     position: relative;
 }
@@ -550,7 +542,7 @@ input, select, textarea{
 /* Tratamientos Corporales Fondo*/
 
 .Corporales{
-    background-image: url(/img/Corporales.jpg);
+    background-image: url(/img/Corporales.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -564,7 +556,7 @@ input, select, textarea{
 /* Tratamientos Belleza Fondo*/
 
 .Belleza{
-    background-image: url(/img/Belleza.jpg);
+    background-image: url(/img/Belleza.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 80%;
@@ -577,7 +569,7 @@ input, select, textarea{
 /* Tratamientos Belleza Fondo*/
 
 .Masajes{
-    background-image: url(/img/Masajes.jpeg);
+    background-image: url(/img/Masajes.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 80%;
@@ -594,10 +586,6 @@ input, select, textarea{
         max-width: 90%;
         margin: 0 auto;
         margin-top: 4rem;
-    }
-    .formulario{
-        display: flex;
-        justify-content: center;
     }
 }
 
@@ -626,16 +614,17 @@ input, select, textarea{
 }
 
 .boton-formulario{
+    width: 100%;
     color: #ffffff;
     background: #C09E5D;
     text-align: center;
     padding: 1rem 3rem; 
     font-size: 2rem;
     font-weight: 700;
-    margin-top: 4rem;
-    margin-bottom: 2rem;
     border-radius: 5rem;
     border: none;
+    margin-top: 3.5rem;
+    cursor: pointer;
 }
 
 .boton-formulario:hover{
@@ -649,10 +638,21 @@ input, select, textarea{
     text-align: center;
     font-size: 1.8rem;
     padding: 1rem;
+    margin: 1rem 0;
     color: var(--blanco);
     text-transform: uppercase;
     border-radius: 3rem;
     transition: all 0.3s ease;
+}
+
+.exito{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    background-color:#69bb07;
+    padding: 1rem;
+    border-radius: 3rem;
 }
 
 /* Pagina Agenda */
@@ -669,18 +669,30 @@ input, select, textarea{
 }
 
 .tabla{
-    margin: 0 auto;
-    border-collapse: collapse;
-    text-align: left;
+    margin-top: 4rem;
+    width: 100%;
+    border-spacing: 0;
     font-size: 1.8rem;
-    background: #EBF5FB;
-    padding: 3rem;
 }
 
-th,td{
+thead{
+    background-color: #7FB3D5;
+}
+
+tbody{
+    background-color: #D4E6F1;
+}
+
+th{
+    color: var(--blanco);
     padding: 2rem;
-    border: 1px solid rgba(0, 0, 0, 0.103);
-    border-radius: 3rem;
+}
+
+.acciones{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2remd;
 }
 
 .boton-editar,.boton-fecha,.boton-cancelar{
@@ -699,4 +711,15 @@ th,td{
 .boton-cancelar{
     background: #CD6155;
     margin-left: 1rem;
+}
+
+.boton-servicios:hover{
+    background: #ffdda9 ;
+    border-radius: 1rem;
+}
+
+/* Pagina Agendar Cita */
+
+.select-clientes{
+    margin-top: 1rem;
 }

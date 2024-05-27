@@ -14,54 +14,58 @@
     <title>Agendar Cita</title>
 
 </head>
-
+<body class="fondo">
 <?php
+    //Importar la conexion
     require './includes/database.php';
     $db = conectarDB();
 
-?>
+    //Escribir el Query
+    $query = "SELECT * FROM cliente";
 
-<body class="fondo">
-    <?php
+    //Consultar la BD
+    $resultado = mysqli_query($db, $query);
+
+
+    //Incluye el template
+
     include './includes/templates/header.php';
-    ?>
+?>
     
-    <section class="contenedor-agenda">
-        <div>
-            <h1 class="titulo-agenda">Agenda</h1>
-        </div>
+    <section >
+        <div class="contenedor-agenda">
+            <h1>Agenda</h1>
 
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>Nombre del cliente</th>
+                            <th>Tipo de servicio</th>
+                            <th>Numero de telefono</th>
+                            <th>Fecha</th>
+                            <th>Estado de la cita</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
 
-
-        <table class="tabla">
-            <thead>
-                <tr>
-                        <th scope="col">Nombre del cliente</th>
-                        <th scope="col">Tipo de servicio</th>
-                        <th scope="col">Numero de telefono</th>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Estado de la cita</th>
-                        <th scope="col">Acciones</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <th scope="row">Rodrigo Chavez Gonzalez</th>
-                <td>Tratamiento Corporal</td>
-                <td>4591163666</td>
-                <td>22/05/2024</td>
-                <td>Activo</td>
-                <td>
-                    <button class="boton-editar"> <img src="img/EditarInfo.png" alt=""></button>
-                    <button class="boton-fecha"> <img src="img/EditarFecha.png"></button>
-                    <button class="boton-cancelar"> <img src="img/Cancelar.png"></button>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
-          
+                    <tbody>
+                        <?php while ($cliente = mysqli_fetch_assoc($resultado)): ?>
+                    <tr>
+                        <td><?php echo $cliente['nombreApellidos']; ?></td>
+                        <td><?php echo $cliente['idCliente']; ?></td>
+                        <td><?php echo $cliente['celular']; ?></td>
+                        <td><?php echo $cliente['idCliente']; ?></td>
+                        <td><?php echo $cliente['idCliente']; ?></td>
+                        <td class="acciones">
+                            <button class="boton-editar"> <img src="img/EditarInfo.png" alt=""></button>
+                            <button class="boton-fecha"> <img src="img/EditarFecha.png"></button>
+                            <button class="boton-cancelar"> <img src="img/Cancelar.png"></button>
+                        </td>
+                    </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
+          </div>
     </section>
 
 

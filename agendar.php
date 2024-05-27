@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,83 +10,114 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>Agendar Cita</title>
-    
+    <title>Document</title>
 </head>
-<body class="fondo">
+<body>
+    <?php
+        require './includes/database.php';
+        include './includes/templates/header.php';
+        $db = conectarDB();
+        $errores = [];
+
+        //Consultar para obtener los clientes  
+
+        $consulta = "SELECT * FROM cliente;";
+        $resultado = mysqli_query($db,$consulta);
+
+        $motivoConsulta = '';
+        $fechaCita = '';
+        $IdCliente = '';
+
+        $servicio = $_GET['servicio' ?? null];
+        $tipoServicio = $_GET['tipoServicio' ?? null];
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            echo "<pre>";
+            var_dump($_POST);
+            echo "</pre>";
+
+            //mysqli_real_escape_string Seguridad para los inputs
+
+            $motivoConsulta = mysqli_real_escape_string ( $db, $_POST['motivoConsulta']);
+            $fechaCita = mysqli_real_escape_string ( $db, $_POST['fechaCita']);
+            $IdCliente = mysqli_real_escape_string ( $db, $_POST['cliente']);
+
+            if(!$motivoConsulta){
+                $errores[] = "El motivo de consulta es obligatorio";
+            }
+
+            if(!$fechaCita){
+                $errores[] = "Introduzca la fecha de la cita";
+            }
+
+            
+            //echo "<pre>";
+            //var_dump($errores);
+            //echo "</pre>";
+            //Revisar que el arreglo de errores este vacio
+            echo $tipoServicioRes;
+            if(empty($errores)){
+                //Insertar en la base de datos
+
+                $query = "INSERT INTO servicios (motivoConsulta)
+                VALUES ('" . $motivoConsulta . "');";
+
+                $queryCita = "INSERT INTO citas (fechaCita, idCliente)
+                VALUES ( '$fechaCita','$cliente');";
     
-<?php
-    include './prueba.php';
-?>
+                echo  $query;
+
+                $resultado = mysqli_query($db, $query);
+                $resultadoCita = mysqli_query($db, $queryCita);
+
+                if($resultado){
+                    //Redireccionar al usuario
+                    header('Location: /agenda.php?resultado=1');
+                }
+            }
+        }
+
+    ?>
 
     <section class="contenedor-formulario">
+        <h1>Agendar cita</h1>
+       
+        <?php  foreach($errores as $error):?>
+            <div class="alerta error">
+                <?php echo $error; ?>
+            </div>
+        <?php endforeach; ?>
+
         <form class="formulario"  method = "POST" action="/agendar.php">
                 <fieldset>
-                    <legend>Agendar Cita</legend>
-                    <label for="username">Nombre y Apellidos:</label>
-                    <input id="nombreApellidos" name="nombreApellidos" type="text" placeholder="Ingrese el nombre y apellidos"/>
 
-                    <label for="username">Edad: </label>
-                    <input id="edad" name="edad" type="number" placeholder="Ingrese la edad" min="1"/>
                     
-                    <label for="username">Lugar de Nacimiento:</label>
-                    <input id="lugarNacimiento" name="lugarNacimiento" type="text" placeholder="Ingrese el lugar de nacimiento" />
+                    <legend>Servicio: <?php echo$servicio?></legend>
 
-                    <label for="username">Fecha de Nacimiento:</label>
-                    <input id="fechaNacimiento" name="fechaNacimiento" type="date" />
-                    
-                    <label for="username">Sexo:</label>
-                    <select name="sexo" id="genero-combobox">
-                        <option value="">--Selecciona el genero--</option>
-                        <option value="mujer">Mujer</option>
-                        <option value="hombre">Hombre</option>
-                        <option value="otro">Otro</option>
-                    </select>
-                    <label for="username">Estado Civil</label>
-                    <select name="estadoCivil" id="estado-civil-combobox">
-                        <option value="">--Selecciona el Estado Civil--</option>
-                        <option value="soltero">Soltera/o</option>
-                        <option value="casado">Casada/o</option>
-                        <option value="divorciado">Divorciada/o</option>
-                        <option value="viudo">Viuda/o</option>
-                        <option value="otro-estado-civil">Otro</option>
+                    <label for="username">Nombre del cliente:</label>
+                    <select class ="select-clientes" name="cliente" >
+                        <option value="">--Seleccione un cliente--</option>
+                        <?php while($cliente = mysqli_fetch_assoc($resultado)): ?>
+                            <option <?php echo $IdCliente === $cliente['idCliente'] ? 'selected' : '';?>   value="<?php echo $cliente['idCliente']; ?>" ><?php echo $cliente ['nombreApellidos'];?></option>
+                        <?php endwhile;?>
                     </select>
                     
-                    <label for="username">Grupo/RH:</label>
-                    <select name="grupoRH" id="grupo/rh-combobox">
-                        <option value="">--Selecciona el Grupo/RH--</option>
-                        <option value="O-">O-</option>
-                        <option value="O+">O+</option>
-                        <option value="A-">A-</option>
-                        <option value="A+">A+</option>
-                        <option value="B-">B-</option>
-                        <option value="B+">B+</option>
-                        <option value="AB-">AB-</option>
-                        <option value="AB+">AB+</option>
-                    </select>
-                    <label for="username">Domicilio:</label>
-                    <input id="domicilio" name="domicilio" type="text" placeholder="Ingrese el domicilio"/>
-                    
-                    <label for="username">Ocupacion:</label>
-                    <input id="ocupacion" name="ocupacion" type="text" placeholder="Ingrese la ocupacion"/>
-
-                    <label for="username">Religion:</label>
-                    <input id="religion" name="religion" type="text" placeholder="Ingrese la religion" />
-                    
-                    <label for="username">Celular:</label>
-                    <input id="celular" name="celular" type="number" placeholder="Ingrese el numero telefonico"/>
-
-                    <label for="username">Correo:</label>
-                    <input id="correo" name="correo" type="email" placeholder="Ingrese su correo electronico"/>
-
-                    <label for="username">Numero de Emergencia:</label>
-                    <input id="numeroEmergencia" name="numeroEmergencia" type="number" placeholder="Ingrese un numero telefonico de emergencia"/>
-
                     <label for="username">Motivo de Consulta:</label>
-                    <textarea name="motivoConsulta" id="motivoConsulta" placeholder="Ingrese el motivo de consulta"></textarea>
+                    <textarea name="motivoConsulta"
+                    id="motivoConsulta"
+                    placeholder="Ingrese el motivo de consulta"><?php echo $motivoConsulta; ?></textarea>
+
+                    <label for="username">Fecha de la cita</label>
+                    <input id="fechaCita"
+                    name="fechaCita"
+                    type="date"
+                    placeholder="Seleccione la fecha de la cita"
+                    value="<?php echo $fechaCita; ?>"/>
+
                 </fieldset>
-            <input type="submit" value="Enviar" class="boton-formulario">
+            <input type="submit" value="Agendar cita" class="boton-formulario">
         </form>
     </section>
+
 </body>
 </html>
