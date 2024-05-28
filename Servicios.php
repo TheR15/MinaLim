@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,88 +13,190 @@
     <link rel="preload" href="css/style.css" as="style">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="fondo">
-    <?php
-        include './includes/templates/header.php';
-        $resultado = $_GET['resultado' ?? null];
-    ?>
+    <section>
+        <div class="contenedor-menu">
+            <?php if (intval($resultado) === 1) : ?>
+                <p class="alerta exito">Cliente registrado correctamente</p>
+            <?php endif; ?>
 
-    <div class="contenedor-menu">
-        <?php if(intval($resultado) === 1): ?>
-            <p class="alerta exito">Cliente registrado correctamente</p>
-        <?php  endif; ?>
+            <?php
+            include './includes/templates/header.php';
+            $resultado = $_GET['resultado' ?? null];
+            require './includes/database.php';
+            $db = conectarDB();
+            $errores = [];
 
-        <div class="contenedor-tratamientos">
-            <div class="Faciales">
-                <div class="contenido-faciales">
-                    <li class="texto-trat lista-Main">Tratamientos Faciales
-                        <ul class="listas">
-                            <li class="text-listas"><a href="/agendar.php?servicio=Control de Acne&tipoServicio=faciales"><input class= "boton-servicios"type="submit" value="Control de Acne"></a></li>
-                            <li class="text-listas"><a href="/agendar.php?servicio=Control de Grasa&tipoServicio=faciales"><input class= "boton-servicios"type="submit" value="Control de Grasa"></a></li>
-                            <li class="text-listas"><a href="/agendar.php?servicio=Limpieza Profunda&tipoServicio=faciales"><input class= "boton-servicios"type="submit" value="Limpieza Profunda"></a></li>
-                            <li class="text-listas"><a href="/agendar.php?servicio=Despigmentante&tipoServicio=faciales"><input class= "boton-servicios"type="submit" value="Despigmentante"></a></li>
-                            <li class="text-listas"><a href="/agendar.php?servicio=Anti-Envejecimiento&tipoServicio=faciales"><input class= "boton-servicios"type="submit" value="Anti-Envejecimiento"></a></li>
-                            <li class="text-listas"><a href="/agendar.php?servicio=Desensibilizante&tipoServicio=faciales"><input class= "boton-servicios"type="submit" value="Desensibilizante"></a></li>
-                            <li class="text-listas"><a href="/agendar.php?servicio=Hidratacion Profunda&tipoServicio=faciales"><input class= "boton-servicios"type="submit" value="Hidratacion Profunda"></a></li>
-                            <li class="text-listas"><a href="/agendar.php?servicio=Perfilamiento de Rostro&tipoServicio=faciales"><input class= "boton-servicios"type="submit" value="Perfilamiento de Rostro"></a></li>
-                            <li class="text-listas"><a href="/agendar.php?servicio=Microdermoabrasion&tipoServicio=faciales"><input class= "boton-servicios"type="submit" value="Microdermoabrasion"></a></li>
-                            <li class="text-listas"><a href="/agendar.php?servicio=Rejuvenecimiento Facial&tipoServicio=faciales"><input class= "boton-servicios"type="submit" value="Rejuvenecimiento Facial"></a></li>
-                            <li class="text-listas"><a href="/agendar.php?servicio=Dermapen&tipoServicio=faciales"><input class= "boton-servicios"type="submit" value="Dermapen"></a></li>
-                            <li class="text-listas"><a href="/agendar.php?servicio=Plasmapen/Verrugas&tipoServicio=faciales"><input class= "boton-servicios"type="submit" value="Plasmapen/Verrugas"></a></li>
-                        </ul>
-                    </li>
+            //Consultar para obtener los clientes  
+
+            $consulta = "SELECT * FROM cliente;";
+            $resultado = mysqli_query($db, $consulta);
+
+            $motivoConsulta = '';
+            $fechaCita = '';
+            $IdCliente = '';
+            $servicio = '';
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                echo "<pre>";
+                var_dump($_POST);
+                echo "</pre>";
+
+                //mysqli_real_escape_string Seguridad para los inputs
+                $servicio = mysqli_real_escape_string($db, $_POST['servicio']);
+                $motivoConsulta = mysqli_real_escape_string($db, $_POST['motivoConsulta']);
+                $fechaCita = mysqli_real_escape_string($db, $_POST['fechaCita']);
+                $IdCliente = mysqli_real_escape_string($db, $_POST['cliente']);
+
+
+                if (!$motivoConsulta) {
+                    $errores[] = "El motivo de consulta es obligatorio";
+                }
+
+                if (!$fechaCita) {
+                    $errores[] = "Introduzca la fecha de la cita";
+                }
+
+                //echo "<pre>";
+                //var_dump($errores);
+                //echo "</pre>";
+                //Revisar que el arreglo de errores este vacio
+
+                if (empty($errores)) {
+                    //Insertar en la base de datos
+
+                    $query = "INSERT INTO citas (tipoServicio, servicio, fechaCita, motivoConsulta, idCliente)
+                VALUES ( '$prueba','$servicio','$fechaCita', '$motivoConsulta', '$IdCliente');";
+
+                    echo  $query;
+
+                    $resultado = mysqli_query($db, $query);
+
+                    echo  $resultado;
+
+                    if ($resultado) {
+                        //Redireccionar al usuario
+                        header('Location: /Servicios.php');
+                    }
+                }
+            }
+            ?>
+            <form method="POST" action="/Servicios.php">
+                <div class="contenedor-tratamientos">
+                    <div class="Faciales">
+                        <div class="contenido-faciales">
+                            <li class="texto-trat lista-Main">Tratamientos Faciales
+                                <ul class="listas">
+                                    <select class="select-servicios boton-servicios" name="servicio">
+                                        <option class="select-ss" value="">--Selecciona el tipo de servicio--</option>
+                                        <option  class="select-ss"value="Control Acne">Control Acne</option>
+                                        <option  class="select-ss"value="Control de grasa">Control de grasa</option>
+                                        <option  class="select-ss"value="Limpiza profunda">Limpiza profunda</option>
+                                        <option  class="select-ss"value="Despigmentante">Despigmentante</option>
+                                        <option  class="select-ss"value="Anti-Envejecimiento">Anti-Envejecimiento</option>
+                                        <option  class="select-ss"value="Desensibilizante">Desensibilizante</option>
+                                        <option  class="select-ss"value="Hidratacion Profunda">Hidratacion Profunda</option>
+                                        <option  class="select-ss"value="Perfilamiento de rostro">Perfilamiento de rostro</option>
+                                        <option  class="select-ss"value="Microdermoabrasion">Microdermoabrasion</option>
+                                        <option  class="select-ss"value="Rejuvenecimiento Facial">Rejuvenecimiento Facial</option>
+                                        <option  class="select-ss"value="Dermapen">Dermapen</option>
+                                        <option value="Plasmagen/Verrugas">Plasmagen/Verrugas</option>
+                                    </select>
+                                </ul>
+                            </li>
+                        </div>
+                    </div>
+
+                    <div class="Corporales">
+                        <div class="contenido-corporales">
+                            <li class="texto-trat lista-Main">Tratamientos Corporales
+                                <ul class="listas">
+                                    <div class="grid-corporales">
+                                        <li><a onclick="scrollToSection('section2')"><input class="boton-servicios-azul" type="submit" value="Reductivo"></a></li>
+                                        <li><a onclick="scrollToSection('section2')"><input class="boton-servicios-azul" type="submit" value="Reafirmante"></a></li>
+                                        <li><a onclick="scrollToSection('section2')"><input class="boton-servicios-azul" type="submit" value="Anticelulitico"></a></li>
+                                        <li><a onclick="scrollToSection('section2')"><input class="boton-servicios-azul" type="submit" value="Levantamiento de Gluteos"></a></li>
+                                        <li><a onclick="scrollToSection('section2')"><input class="boton-servicios-azul" type="submit" value="Post-Quirurgico"></a></li>
+                                        <li><a onclick="scrollToSection('section2')"><input class="boton-servicios-azul" type="submit" value="Exfolacion Corporal"></a></li>
+                                    </div>
+                                </ul>
+                            </li>
+                        </div>
+                    </div>
+
+                    <div class="Belleza">
+                        <div class="contenido-belleza">
+                            <li class="texto-trat lista-Main">Belleza
+                                <ul class="listas">
+                                    <div>
+                                        <li><a onclick="scrollToSection('section2')"><input class="boton-servicios-rojo" type="submit" value="Lifting de pestañas"></a></li>
+                                        <li><a onclick="scrollToSection('section2')"><input class="boton-servicios-rojo" type="submit" value="Planchado de ceja"></a></li>
+                                        <li><a onclick="scrollToSection('section2')"><input class="boton-servicios-rojo" type="submit" value="Depilacion de cera española"></a></li>
+                                        <li><a onclick="scrollToSection('section2')"><input class="boton-servicios-rojo" type="submit" value="Pedicure-Manicure"></a></li>
+                                        <li><a onclick="scrollToSection('section2')"><input class="boton-servicios-rojo" type="submit" value="Uñas-Gel"></a></li>
+                                    </div>
+                                </ul>
+                            </li>
+                        </div>
+                    </div>
+
+                    <div class="Masajes">
+                        <div class="contenido-masajes">
+                            <li class="texto-trat lista-Main blanco">Masajes
+                                <ul class="listas">
+                                    <div>
+                                        <li><a onclick="scrollToSection('section2')"><input class="boton-servicios-masajes" type="submit" value="Masaje Relajante"></a></li>
+                                        <li><a onclick="scrollToSection('section2')"><input class="boton-servicios-masajes" type="submit" value="Velo de Novia"></a></li>
+                                        <li><a onclick="scrollToSection('section2')"><input class="boton-servicios-masajes" type="submit" value="Drenaje Linfatico"></a></li>
+                                    </div>
+                                </ul>
+                            </li>
+                        </div>
+                    </div>
                 </div>
-            </div>
+    </section>
 
-            <div class="Corporales">
-                <div class="contenido-corporales">
-                    <li class="texto-trat lista-Main">Tratamientos Corporales
-                        <ul class="listas" >
-                            <div class="grid-corporales">
-                                <li ><a href="/agendar.php?servicio=Reductivo"><input class= "boton-servicios-azul"type="submit" value="Reductivo"></a></li>
-                                <li ><a href="/agendar.php?servicio=Reafirmante"><input class= "boton-servicios-azul"type="submit" value="Reafirmante"></a></li>
-                                <li ><a href="/agendar.php?servicio=Anticelulitico"><input class= "boton-servicios-azul"type="submit" value="Anticelulitico"></a></li>
-                                <li ><a href="/agendar.php?servicio=Levantamiento de Gluteos"><input class= "boton-servicios-azul"type="submit" value="Levantamiento de Gluteos"></a></li>
-                                <li ><a href="/agendar.php?servicio=Post-Quirurgico"><input class= "boton-servicios-azul"type="submit" value="Post-Quirurgico"></a></li>
-                                <li ><a href="/agendar.php?servicio=Exfolacion Corporal"><input class= "boton-servicios-azul"type="submit" value="Exfolacion Corporal"></a></li>
-                            </div>
-                        </ul>
-                    </li>
-                </div>
-            </div>
-            
-            <div class="Belleza">
-                <div class="contenido-belleza">
-                    <li class="texto-trat lista-Main">Belleza
-                    <ul class="listas">
-                            <div>
-                                <li><a href="/agendar.php?servicio=Lifting de pestañas"><input class= "boton-servicios-rojo"type="submit" value="Lifting de pestañas"></a></li>
-                                <li><a href="/agendar.php?servicio=Planchado de ceja"><input class= "boton-servicios-rojo"type="submit" value="Planchado de ceja"></a></li>
-                                <li><a href="/agendar.php?servicio=Depilacion de cera española"><input class= "boton-servicios-rojo"type="submit" value="Depilacion de cera española"></a></li>
-                                <li><a href="/agendar.php?servicio=Pedicure-Manicure"><input class= "boton-servicios-rojo"type="submit" value="Pedicure-Manicure"></a></li>
-                                <li><a href="/agendar.php?servicio=Uñas-Gel"><input class= "boton-servicios-rojo"type="submit" value="Uñas-Gel"></a></li>
-                            </div>
-                        </ul>
-                    </li>
-                </div>  
-            </div>
+    <script src="/js/section.js"></script>
 
-            <div class="Masajes">
-                <div class="contenido-masajes">
-                    <li class="texto-trat lista-Main blanco">Masajes
-                        <ul class="listas">
-                            <div>
-                                <li><a href="/agendar.php?servicio=Masaje Relajante"><input class= "boton-servicios-masajes"type="submit" value="Masaje Relajante"></a></li>
-                                <li><a href="/agendar.php?servicio=Velo de Novia"><input class= "boton-servicios-masajes"type="submit" value="Velo de Novia"></a></li>
-                                <li><a href="/agendar.php?servicio=Drenaje Linfatico"><input class= "boton-servicios-masajes"type="submit" value="Drenaje Linfatico"></a></li>
-                            </div>
-                        </ul>
-                    </li>
+    <div class="contenedor-agendar">
+
+        <section id='section2' class="contenedor-formulario formulario">
+            <h1>Agendar cita</h1>
+
+            <?php foreach ($errores as $error) : ?>
+                <div class="alerta error">
+                    <?php echo $error; ?>
                 </div>
-            </div>
-        </div>
+            <?php endforeach; ?>
+
+
+
+            <fieldset>
+
+                <legend></legend>
+
+                <label for="username">Nombre del cliente:</label>
+                <select class="select-clientes" name="cliente">
+                    <option value="">--Seleccione un cliente--</option>
+                    <?php while ($cliente = mysqli_fetch_assoc($resultado)) : ?>
+                        <option <?php echo $IdCliente === $cliente['idCliente'] ? 'selected' : ''; ?> value="<?php echo $cliente['idCliente']; ?>"><?php echo $cliente['nombreApellidos']; ?></option>
+                    <?php endwhile; ?>
+                </select>
+
+                <label for="username">Motivo de Consulta:</label>
+                <textarea name="motivoConsulta" id="motivoConsulta" placeholder="Ingrese el motivo de consulta"><?php echo $motivoConsulta; ?></textarea>
+
+                <label for="username">Fecha de la cita</label>
+                <input id="fechaCita" name="fechaCita" type="date" placeholder="Seleccione la fecha de la cita" value="<?php echo $fechaCita; ?>" />
+
+            </fieldset>
+            <input type="submit" value="Agendar cita" class="boton-formulario">
+            </form>
+        </section>
     </div>
-</div>
-</header>
+    </div>
+    </header>
 </body>
+
 </html>

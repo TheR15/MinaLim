@@ -1,108 +1,123 @@
-:root{
+:root {
     --fuente: "Libre Baskerville", serif;
     --fuenteHeading: 'Montserrat', sans-serif;
     --primario: #784D3c;
-    --claro:#e1e1e1;
+    --claro: #e1e1e1;
     --blanco: #ffffff;
     --negro: #000000;
 }
 
-html{
+html {
     box-sizing: border-box;
     font-size: 62.5%;
+    scroll-behavior: inherit;
 }
-*, *:before, *after{
+
+*,
+*:before,
+*after {
     box-sizing: inherit;
 }
 
 
-.contenedor{
+.contenedor {
     padding-bottom: 22rem;
     max-width: 130rem;
     width: 100%;
-    width: min(90%,120rem);
+    width: min(90%, 120rem);
     margin: 0 auto;
     background-color: #FEF9F4;
 }
 
-body{
+body {
     font-family: var(--fuenteHeading);
-   
+
 }
 
 @media (min-width: 768px) {
-    body{
+    body {
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
     }
 }
 
-a{
+a {
     text-decoration: none;
 }
 
 
 /*Globales*/
 
-.no-margin{
+.no-margin {
     margin: 0 auto;
 }
 
-.centrar-texto{
+.centrar-texto {
     text-align: center;
 }
 
-.logo{
+.logo {
     max-width: 15%;
 }
 
-h1, h2, h3, h4, input,a{
+h1,
+h2,
+h3,
+h4,
+input,
+a {
     line-height: 1.2;
 }
 
-h1{
+h1 {
     font-size: 4.8rem;
     font-weight: 500;
 }
-h2{
+
+h2 {
     font-family: var(--fuenteHeading);
     font-size: 4rem;
     font-weight: 500;
     margin: 0 auto;
 }
-h3{
+
+h3 {
     font-size: 3.2rem;
 }
-h4{
+
+h4 {
     font-size: 2.3rem;
 }
-img{
+
+img {
     max-width: 100%;
 }
 
-li{
+li {
     font-size: 2.3rem;
 }
 
-label{
+label {
     font-size: 1.8rem;
 }
 
-legend{
+legend {
     font-weight: bold;
     font-size: 2rem;
 }
 
-fieldset{
+fieldset {
     display: flex;
     flex-direction: column;
     align-items: initial;
     border: none;
 }
 
-input, select, textarea{
-    max-width:100%;
+input,
+select,
+textarea {
+    max-width: 100%;
     padding: 1rem;
     border-radius: 1rem;
     border: none;
@@ -114,7 +129,7 @@ input, select, textarea{
 
 /* Header */
 
-.header{
+.header {
     font-family: var(--fuente);
     display: flex;
     align-items: center;
@@ -123,37 +138,37 @@ input, select, textarea{
 }
 
 
-.logo_header{
+.logo_header {
     max-width: 10%;
 }
 
-.titulo{
+.titulo {
     font-size: 6rem;
     font-weight: bold;
-    color:#C09E5D;
+    color: #C09E5D;
 }
 
-.titulo_span{
+.titulo_span {
     font-weight: 200;
     font-size: 3rem;
     display: flex;
     flex-direction: row-reverse;
 }
 
-@media (min-width : 300px){
-    .login{
-        color:#C09E5D ;
+@media (min-width : 300px) {
+    .login {
+        color: #C09E5D;
         font-weight: bold;
         max-width: 40rem;
         width: 90%;
-        width: min(90%,120rem);
+        width: min(90%, 120rem);
         margin: 0 auto;
         margin-top: 15rem;
         padding: 3rem;
         text-align: center;
         background-color: #FEF9F4;
         border-radius: 5rem;
-        
+
         -webkit-box-shadow: 0px 0px 3px 0px #784D3c;
         -moz-box-shadow: 0px 0px 3px 0px #784D3c;
         box-shadow: 0px 0px 3px 0px #784D3c;
@@ -162,21 +177,21 @@ input, select, textarea{
 
 
 
-.campos_login{
+.campos_login {
     margin-top: 1.5rem;
     display: grid;
     justify-content: center;
-    
+
 }
 
-.icono_login{
+.icono_login {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 2rem;
 }
 
-.icono_login:hover{
+.icono_login:hover {
     -webkit-box-shadow: 0px 0px 3px 0px #784D3c;
     -moz-box-shadow: 0px 0px 3px 0px #784D3c;
     box-shadow: 0px 0px 3px 0px #784D3c;
@@ -187,7 +202,7 @@ input, select, textarea{
     color: #ffffff;
     background: #C09E5D;
     text-align: center;
-    padding: 1rem 3rem; 
+    padding: 1rem 3rem;
     font-size: 2rem;
     font-weight: 700;
     margin-top: 1.5rem;
@@ -196,7 +211,7 @@ input, select, textarea{
     border: none;
 }
 
-.boton:hover{
+.boton:hover {
     background-color: #784D3c;
     transition: 0.8s;
 }
@@ -204,23 +219,23 @@ input, select, textarea{
 
 /* Menu Principal */
 
-.contenedor-menu{
+.contenedor-menu {
     max-width: 150rem;
     width: 100%;
     width: min(90%, 150rem);
     margin: 0 auto;
 }
 
-.fondo{
+.fondo {
     background: #fef5e74d;
 }
 
-    
-.logo__nombre{
+
+.logo__nombre {
     color: #C09E5D;
 }
 
-.barra-nav{
+.barra-nav {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -229,8 +244,8 @@ input, select, textarea{
     border-radius: 2rem;
 }
 
-@media (min-width : 768px){
-    .barra-nav{
+@media (min-width : 768px) {
+    .barra-nav {
         display: flex;
         flex-direction: row;
         padding-right: 5rem;
@@ -238,11 +253,13 @@ input, select, textarea{
         gap: 6rem;
         background-color: #FBEEE6;
     }
-    .barra{
+
+    .barra {
         display: flex;
         gap: 5rem;
     }
-    .navegacion{
+
+    .navegacion {
         display: flex;
         margin: 0 auto;
         margin-right: 0;
@@ -250,7 +267,7 @@ input, select, textarea{
     }
 }
 
-.barra-nav a{
+.barra-nav a {
     color: #000000;
     font-size: var(--fuenteHeading);
     font-size: 2rem;
@@ -258,49 +275,50 @@ input, select, textarea{
     padding: 1rem;
 }
 
-.navegacion__enlace{
+.navegacion__enlace {
     color: #000000;
     transition: color .5s ease;
 }
 
-.navegacion__enlace:hover{
-    color:#935116;
+.navegacion__enlace:hover {
+    color: #935116;
 }
 
 /**Tratamientos**/
 
 @media (min-width :768px) {
-    .contenedor-tratamientos{
+    .contenedor-tratamientos {
         margin: 0 auto;
-        display: grid; 
-        grid-auto-columns: 1fr; 
-        grid-template-columns: 1fr 1fr 1fr; 
-        grid-template-rows: 1fr 1fr; 
+        display: grid;
+        grid-auto-columns: 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
         gap: 5rem;
-        grid-template-areas: 
-        "Faciales Corporales Corporales"
-        "Faciales Belleza Masajes"; 
+        grid-template-areas:
+            "Faciales Corporales Corporales"
+            "Faciales Belleza Masajes";
     }
-    .texto-trat{
+
+    .texto-trat {
         margin-top: 1.5rem;
     }
 }
 
-.texto-trat{
+.texto-trat {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
     text-align: center;
 }
 
-.contenedor-tratamientos{
+.contenedor-tratamientos {
     margin-top: 2rem;
 }
 
 /* Responsiva en Moviles */
 
 @media (min-width :300px) {
-    .Faciales{
+    .Faciales {
         background-position: center;
         border-radius: 3rem;
         padding-bottom: 60rem;
@@ -308,7 +326,7 @@ input, select, textarea{
         transition: background-color 1s;
     }
 
-    .Corporales{
+    .Corporales {
         background-position: center;
         margin-top: 2rem;
         display: flex;
@@ -316,7 +334,7 @@ input, select, textarea{
         padding-bottom: 33rem;
     }
 
-    .Belleza{
+    .Belleza {
         display: flex;
         justify-content: center;
         background-position: center;
@@ -324,7 +342,7 @@ input, select, textarea{
         padding-bottom: 29rem;
     }
 
-    .Masajes{
+    .Masajes {
         display: flex;
         justify-content: center;
         background-position: center;
@@ -337,11 +355,15 @@ input, select, textarea{
 /* Responsiva en Escritorios */
 
 @media (min-width :768px) {
-    .Corporales, .Masajes, .Belleza, .Faciales{
+
+    .Corporales,
+    .Masajes,
+    .Belleza,
+    .Faciales {
         margin-top: 0;
         display: flex;
         justify-content: center;
-        background-color:#F5EEF8 ;
+        background-color: #F5EEF8;
         border-radius: 3rem;
         padding-bottom: 28rem;
         position: relative;
@@ -354,108 +376,125 @@ input, select, textarea{
 
 @-webkit-keyframes tracking-in-expand {
     0% {
-      letter-spacing: -0.1em;
-      opacity: 0;
+        letter-spacing: -0.1em;
+        opacity: 0;
     }
+
     40% {
-      opacity: 0.6;
+        opacity: 0.6;
     }
+
     100% {
-      opacity: 1;
+        opacity: 1;
     }
-  }
-  @keyframes tracking-in-expand {
+}
+
+@keyframes tracking-in-expand {
     0% {
-      letter-spacing: -.1em;
-      opacity: 0;
+        letter-spacing: -.1em;
+        opacity: 0;
     }
+
     40% {
-      opacity: 0.6;
+        opacity: 0.6;
     }
+
     100% {
-      opacity: 1;
+        opacity: 1;
     }
-  }
+}
 
 /* Faciales Transicion y Animacion */
 
 .boton-servicios {
     -webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-	animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-    
+    animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+
 }
 
-.Faciales:hover{
-    background-color:#ffe0c9;
+.Faciales:hover {
+    background-color: #ffe0c9;
 }
 
-.Faciales:hover .listas{
+.Faciales:hover .listas {
     display: block;
 }
 
 /* Corporales Transicion y Animacion */
-.boton-servicios-azul{
+.boton-servicios-azul {
     -webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-	animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
 
-.Corporales:hover .listas{
+.Corporales:hover .listas {
     display: block;
 }
+
 /*Belleza Transicion y Animacion */
 
-.boton-servicios-rojo{
+.boton-servicios-rojo {
     -webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-	animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
 
-.Belleza:hover{
-    background-color:#ffceca;
+.Belleza:hover {
+    background-color: #ffceca;
 }
 
-.Belleza:hover .listas{
+.Belleza:hover .listas {
     display: block;
 }
 
 /*Masajes Transicion y Animacion */
 
-.Masajes .listas{
+.Masajes .listas {
     -webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-	animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
 
-.Masajes:hover .listas{
+.Masajes:hover .listas {
     display: block;
 }
 
 
 @media (min-width :768px) {
-        .grid-corporales{
-        display: grid; 
-        grid-auto-columns: 1fr; 
+    .grid-corporales {
+        display: grid;
+        grid-auto-columns: 1fr;
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
     }
 }
 
-.Corporales{
+.Corporales {
     border-radius: 3rem;
 }
 
-.Belleza{
+.Belleza {
     border-radius: 3rem;
 }
 
-.Masajes{
+.Masajes {
     border-radius: 3rem;
 }
 
-.Faciales { grid-area: Faciales; }
-.Corporales { grid-area: Corporales; }
-.Belleza { grid-area: Belleza; }
-.Masajes { grid-area: Masajes; }
+.Faciales {
+    grid-area: Faciales;
+}
 
-.listas{
+.Corporales {
+    grid-area: Corporales;
+}
+
+.Belleza {
+    grid-area: Belleza;
+}
+
+.Masajes {
+    grid-area: Masajes;
+}
+
+.listas {
     position: absolute;
     display: none;
     list-style: none;
@@ -464,7 +503,7 @@ input, select, textarea{
     margin-top: 4rem;
 }
 
-.lista-belleza{
+.lista-belleza {
     position: absolute;
     display: none;
     list-style: none;
@@ -476,7 +515,7 @@ input, select, textarea{
     right: 5rem;
 }
 
-.lista-Main{
+.lista-Main {
     list-style: none;
     font-weight: bold;
 }
@@ -484,7 +523,7 @@ input, select, textarea{
 .boton-servicios-azul,
 .boton-servicios,
 .boton-servicios-rojo,
-.boton-servicios-masajes{
+.boton-servicios-masajes {
     background: transparent;
     font-size: 2rem;
     font-weight: 300;
@@ -514,13 +553,16 @@ input, select, textarea{
 
 /* Tratamientos Faciales Fondo*/
 
-.Faciales{
+.Faciales {
     background-image: url(/img/Faciales.webp);
     background-size: cover;
     position: relative;
 }
 
-.contenido-faciales, .contenido-corporales, .contenido-belleza, .contenido-masajes{
+.contenido-faciales,
+.contenido-corporales,
+.contenido-belleza,
+.contenido-masajes {
     position: absolute;
     background-color: rgb(0 0 0 / 0%);
     width: 100%;
@@ -529,7 +571,10 @@ input, select, textarea{
     transition: background-color 1s ease-out;
 }
 
-.contenido-faciales:hover, .contenido-corporales:hover, .contenido-belleza:hover, .contenido-masajes:hover{
+.contenido-faciales:hover,
+.contenido-corporales:hover,
+.contenido-belleza:hover,
+.contenido-masajes:hover {
     display: flex;
     justify-content: center;
     position: absolute;
@@ -541,7 +586,7 @@ input, select, textarea{
 
 /* Tratamientos Corporales Fondo*/
 
-.Corporales{
+.Corporales {
     background-image: url(/img/Corporales.webp);
     background-size: cover;
     background-repeat: no-repeat;
@@ -549,40 +594,42 @@ input, select, textarea{
     position: relative;
 }
 
-.contenido-corporales:hover{
+.contenido-corporales:hover {
     background: rgba(212, 230, 241, 0.8);
 }
 
 /* Tratamientos Belleza Fondo*/
 
-.Belleza{
+.Belleza {
     background-image: url(/img/Belleza.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 80%;
     position: relative;
 }
-.contenido-belleza:hover{
+
+.contenido-belleza:hover {
     background: rgba(250, 219, 216, 0.8);
 }
 
 /* Tratamientos Belleza Fondo*/
 
-.Masajes{
+.Masajes {
     background-image: url(/img/Masajes.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 80%;
     position: relative;
 }
-.contenido-masajes:hover{
+
+.contenido-masajes:hover {
     background: rgba(250, 229, 211, 0.8);
 }
 
 
 /* Pagina Agendar Cita */
 @media (min-width :300px) {
-    .contenedor-formulario{
+    .contenedor-formulario {
         max-width: 90%;
         margin: 0 auto;
         margin-top: 4rem;
@@ -590,11 +637,11 @@ input, select, textarea{
 }
 
 @media (min-width :768px) {
-    .formulario{
+    .formulario {
         display: block;
     }
-    
-    .contenedor-formulario{
+
+    .contenedor-formulario {
         max-width: 50%;
         margin: 0 auto;
         margin-top: 4rem;
@@ -602,23 +649,24 @@ input, select, textarea{
 }
 
 
-.formulario{
+.formulario {
     background-color: #FDEDEC;
     padding: 5rem;
     border-radius: 5rem;
+    margin-bottom: 10rem;
 }
 
-.formulario label{
+.formulario label {
     margin-top: 2rem;
     margin-bottom: 1rem;
 }
 
-.boton-formulario{
+.boton-formulario {
     width: 100%;
     color: #ffffff;
     background: #C09E5D;
     text-align: center;
-    padding: 1rem 3rem; 
+    padding: 1rem 3rem;
     font-size: 2rem;
     font-weight: 700;
     border-radius: 5rem;
@@ -627,13 +675,13 @@ input, select, textarea{
     cursor: pointer;
 }
 
-.boton-formulario:hover{
+.boton-formulario:hover {
     background-color: #784D3c;
     transition: 0.8s;
 }
 
 /* Alerta Error JS */
-.error{
+.error {
     background-color: rgb(185, 0, 0);
     text-align: center;
     font-size: 1.8rem;
@@ -645,57 +693,59 @@ input, select, textarea{
     transition: all 0.3s ease;
 }
 
-.exito{
+.exito {
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
     color: white;
-    background-color:#69bb07;
+    background-color: #69bb07;
     padding: 1rem;
     border-radius: 3rem;
 }
 
 /* Pagina Agenda */
 
-.contenedor-agenda{
+.contenedor-agenda {
     max-width: 150rem;
     width: 90%;
     width: min(90%, 150rem);
     margin: 0 auto;
 }
 
-.titulo-agenda{
+.titulo-agenda {
     margin-left: 7rem;
 }
 
-.tabla{
+.tabla {
     margin-top: 4rem;
     width: 100%;
     border-spacing: 0;
     font-size: 1.8rem;
 }
 
-thead{
+thead {
     background-color: #7FB3D5;
 }
 
-tbody{
+tbody {
     background-color: #D4E6F1;
 }
 
-th{
+th {
     color: var(--blanco);
     padding: 2rem;
 }
 
-.acciones{
+.acciones {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
     margin-bottom: 2remd;
 }
 
-.boton-editar,.boton-fecha,.boton-cancelar{
+.boton-editar,
+.boton-fecha,
+.boton-cancelar {
     background: #F7DC6F;
     border: none;
     padding: 1rem;
@@ -703,23 +753,32 @@ th{
     cursor: pointer;
 }
 
-.boton-fecha{
+.boton-fecha {
     background: #52BE80;
     margin-left: 1rem;
 }
 
-.boton-cancelar{
+.boton-cancelar {
     background: #CD6155;
     margin-left: 1rem;
 }
 
-.boton-servicios:hover{
-    background: #ffdda9 ;
+.boton-servicios:hover {
+    background: #ffdda9;
     border-radius: 1rem;
 }
 
 /* Pagina Agendar Cita */
 
-.select-clientes{
-    margin-top: 1rem;
+.select-servicios{
+    background-color: #ffdda94b;
+    cursor: pointer;
+
+}
+
+/* Estilo para las opciones */
+
+.contenedor-agendar {
+    margin-top: 20rem;
+    padding-bottom: 5rem;
 }
